@@ -1,1 +1,65 @@
 @import "tailwindcss";
+
+@theme {
+  --color-paper: #f4f1ea;
+  --color-sheet: #fffcf7;
+  --color-chrome: #ebe6dc;
+  --color-ink: #13211e;
+  --color-muted: #445751;
+  --color-line: #e3ddd2;
+  --color-teal: #0b6b63;
+  --color-teal-dark: #053633;
+  --color-teal-tint: #e5f2f0;
+  --color-amber: #7a4e0d;
+  --color-amber-tint: #f8f1e4;
+}
+
+@theme inline {
+  --font-sans: var(--font-source), "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), "Iowan Old Style", Palatino, serif;
+  --font-mono: var(--font-plex), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.25rem;
+  background: var(--color-paper);
+  color-scheme: light;
+}
+
+@media (max-width: 767px) {
+  html {
+    scroll-padding-bottom: 6rem;
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-source), "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #cfe6e2;
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+}
+
+.surface-dark :focus-visible {
+  outline-color: #fff;
+}
+
+.hero-wash {
+  background-image: radial-gradient(ellipse at top right, var(--color-teal-tint), transparent 58%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

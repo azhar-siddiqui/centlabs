@@ -20,6 +20,7 @@ export const site = {
   nav: [
     { label: "Features", href: "#features" },
     { label: "Capacity", href: "#capacity" },
+    { label: "Your data", href: "#local" },
     { label: "Contact", href: "#contact" },
   ],
   hero: {
