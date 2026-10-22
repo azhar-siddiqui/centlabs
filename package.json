@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prepare": "vp config",
+    "lint": "vp lint",
+    "lint:fix": "vp lint --fix"
   },
   "dependencies": {
     "next": "16.4.2",
@@ -19,7 +22,8 @@
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite-plus": "catalog:"
   },
   "packageManager": "pnpm@12.14.0"
 }
