@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Keep title, description, canonical, and Open Graph tags in the first HTML
+  // chunk for every crawler. Next's default bot list leaves Googlebot out.
+  htmlLimitedBots: /.*/,
   experimental: {
     agentFeedback: true,
   },

@@ -1,3 +1,4 @@
+import { siteOrigin } from "@/lib/seo";
 import { site } from "@/lib/site";
 import type { Metadata, Viewport } from "next";
 import { Fraunces, IBM_Plex_Mono, Source_Sans_3 } from "next/font/google";
@@ -23,16 +24,30 @@ const plex = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: site.metaTitle,
+  metadataBase: new URL(siteOrigin()),
+  title: {
+    absolute: site.metaTitle,
+  },
   description: site.metaDescription,
   applicationName: site.name,
+  keywords: site.keywords,
   authors: [{ name: "Azhar Sayyed", url: site.developer.url }],
+  creator: "Azhar Sayyed",
+  publisher: site.name,
+  category: "software",
+  referrer: "origin-when-cross-origin",
   openGraph: {
     title: site.metaTitle,
     description: site.metaDescription,
+    url: "/",
     siteName: site.name,
     type: "website",
     locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.metaTitle,
+    description: site.metaDescription,
   },
 };
 
@@ -44,7 +59,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${fraunces.variable} ${source.variable} ${plex.variable} h-full antialiased`}
       suppressHydrationWarning
     >

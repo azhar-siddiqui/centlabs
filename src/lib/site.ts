@@ -1,9 +1,18 @@
 // All copy and links for the site live in this file.
 export const site = {
   name: "CentLabs Pro",
-  metaTitle: "CentLabs Pro | Offline lab software for pathology and veterinary labs",
+  metaTitle: "CentLabs Pro | Offline pathology and veterinary lab software",
   metaDescription:
-    "Patients, reports, bills and stock on one offline Windows computer. Built for pathology and veterinary labs in India.",
+    "Patients, reports, bills and stock on one offline Windows computer. Encrypted on the lab PC. For pathology and veterinary labs in India.",
+  keywords: [
+    "CentLabs Pro",
+    "pathology lab software",
+    "veterinary lab software",
+    "offline lab software",
+    "pathology reporting software",
+    "lab billing software",
+    "lab software India",
+  ],
   downloadLabel: "Download for Windows",
   // The owner must replace this with the direct URL of the Windows installer, named like CentLabs-Pro-setup.exe.
   downloadUrl: "WINDOWS_DOWNLOAD_URL",
