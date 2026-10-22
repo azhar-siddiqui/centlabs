@@ -2,10 +2,7 @@ import { Logo } from "@/components/logo";
 import { site } from "@/lib/site";
 import { telHref, wrap } from "@/lib/ui";
 
-export async function Footer() {
-  "use cache";
-  const year = new Date().getFullYear();
-
+export function Footer() {
   return (
     <footer className="border-t border-line bg-sheet">
       <div className={`${wrap} pt-12 pb-28 md:pb-12`}>
@@ -81,7 +78,7 @@ export async function Footer() {
         </div>
 
         <p className="mt-10 border-t border-line pt-6 text-sm text-muted">
-          © {year} {site.name}
+          © {site.year} {site.name}
         </p>
       </div>
     </footer>

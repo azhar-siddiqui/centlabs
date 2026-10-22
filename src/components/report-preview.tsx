@@ -1,9 +1,11 @@
 import { InfoIcon } from "@/components/icons";
 import { Mark } from "@/components/logo";
+import { site } from "@/lib/site";
 
 const sidebar = ["Dashboard", "Patients", "Reports", "Billing", "Inventory"];
 
 export function ReportPreview() {
+  const { year, sampleDate } = site;
   return (
     <figure className="mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none">
       <div className="overflow-hidden rounded-lg border border-line bg-sheet shadow-[0_24px_50px_-28px_rgba(19,33,30,0.45)]">
@@ -65,28 +67,27 @@ export function ReportPreview() {
                     Report
                   </p>
                   <p className="mt-1 font-mono text-lg font-medium tracking-tight text-ink sm:text-xl">
-                    RPT-2026-01428
+                    RPT-{year}-01428
                   </p>
                 </div>
                 <span className="mt-1 inline-flex shrink-0 items-center gap-1.5 rounded-full bg-teal-tint px-2.5 py-1 text-xs font-semibold text-teal">
-                  <span className="size-1.5 rounded-full bg-teal" />
-                  Finalized
+                  <span className="size-1.5 rounded-full bg-teal" /> Finalized
                 </span>
               </div>
 
               <dl className="mt-4 space-y-1 text-sm">
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-2.5 py-2">
                   <dt className="text-muted">Patient code</dt>
-                  <dd className="font-mono text-[13px] font-medium">PAT-2026-00311</dd>
+                  <dd className="font-mono text-[13px] font-medium">PAT-{year}-00311</dd>
                 </div>
                 <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-2.5 py-2">
                   <dt className="text-muted">Sample date</dt>
-                  <dd className="font-medium">14 Mar 2026</dd>
+                  <dd className="font-medium">{sampleDate}</dd>
                 </div>
                 <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 rounded-md bg-amber-tint px-2.5 py-2">
                   <dt className="font-medium text-amber">Haemoglobin</dt>
                   <dd className="flex items-center gap-2 font-semibold">
-                    9.8 g/dL
+                    9.8 g/dL{" "}
                     <span className="rounded-full bg-sheet px-2 py-0.5 text-[11px] font-semibold text-amber">
                       Low
                     </span>

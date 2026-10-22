@@ -1,5 +1,13 @@
 // All copy and links for the site live in this file.
+
+const today = new Date();
+const year = today.getFullYear();
+const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const sampleDate = `${today.getDate()} ${months[today.getMonth()]} ${year}`;
+
 export const site = {
+  year,
+  sampleDate,
   name: "CentLabs Pro",
   metaTitle: "CentLabs Pro | Offline pathology and veterinary lab software",
   metaDescription:
@@ -53,7 +61,7 @@ export const site = {
         },
         {
           t: "Patients",
-          d: "Human and veterinary records get an automatic code such as PAT-2026-00001. Veterinary records also keep species, breed and the owner's name and phone.",
+          d: `Human and veterinary records get an automatic code such as PAT-${year}-00001. Veterinary records also keep species, breed and the owner's name and phone.`,
         },
         {
           t: "Reports",
@@ -157,7 +165,7 @@ export const site = {
       "One report, with its results and invoice, takes roughly 10–20 KB.",
       "A lab making 100 reports a day can keep more than 20 years of work in under 10 GB.",
       "A normal lab never reaches 2.1 billion.",
-      "The number does not restart every January. The year in a code is only the year the record was created. After 99999 the code simply gets longer, for example PAT-2026-100000.",
+      `The number does not restart every January. The year in a code is only the year the record was created. After 99999 the code simply gets longer, for example PAT-${year}-100000.`,
       "Old patients and reports stay until someone deletes them.",
     ],
     warning:
