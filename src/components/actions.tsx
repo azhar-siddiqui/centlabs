@@ -1,5 +1,8 @@
+"use client";
+
 import { ChatIcon, DownloadIcon } from "@/components/icons";
 import { site } from "@/lib/site";
+import type { MouseEvent } from "react";
 
 const base =
   "inline-flex min-h-11 touch-manipulation items-center justify-center gap-2 whitespace-nowrap rounded-lg px-4 text-sm font-semibold transition-colors";
@@ -12,6 +15,22 @@ const variants = {
 } as const;
 
 type Variant = keyof typeof variants;
+
+// The installer is a cross-origin file with no attachment header.
+// A normal link navigates this page. A new tab is a second page.
+// A hidden frame lets the browser save the file and leaves this page in place.
+function startDownload(event: MouseEvent<HTMLAnchorElement>) {
+  event.preventDefault();
+  document.getElementById("centlabs-download")?.remove();
+
+  const frame = document.createElement("iframe");
+  frame.id = "centlabs-download";
+  frame.title = "Installer download";
+  frame.setAttribute("aria-hidden", "true");
+  frame.style.cssText = "position:fixed;width:0;height:0;border:0;opacity:0;pointer-events:none";
+  document.body.appendChild(frame);
+  frame.src = site.downloadUrl;
+}
 
 export function Download({
   variant = "primary",
@@ -27,6 +46,7 @@ export function Download({
       href={site.downloadUrl}
       className={`${base} ${variants[variant]} ${className}`}
       aria-label={label === site.downloadLabel ? undefined : site.downloadLabel}
+      onClick={startDownload}
     >
       <DownloadIcon />
       {label}

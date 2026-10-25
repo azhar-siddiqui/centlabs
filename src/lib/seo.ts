@@ -26,6 +26,9 @@ export function jsonLd() {
   const url = siteOrigin();
   const telephone = site.phone.replace(/[^\d+]/g, "");
   const features = site.groups.flatMap((group) => group.items.map((item) => item.t));
+  const version = /(\d{1,4}\.\d{1,4}\.\d{1,4})/.exec(site.downloadUrl)?.[1];
+  const logo = `${url}/icon/512`;
+  const shareImage = `${url}/opengraph-image`;
 
   return {
     "@context": "https://schema.org",
@@ -44,6 +47,12 @@ export function jsonLd() {
         "@id": `${url}/#organization`,
         name: site.name,
         url,
+        logo: {
+          "@type": "ImageObject",
+          url: logo,
+          width: 512,
+          height: 512,
+        },
         email: site.email,
         telephone,
         areaServed: { "@type": "Country", name: "India" },
@@ -65,6 +74,11 @@ export function jsonLd() {
         applicationCategory: "BusinessApplication",
         applicationSubCategory: "Laboratory information system",
         operatingSystem: "Windows",
+        ...(version ? { softwareVersion: version } : {}),
+        downloadUrl: site.downloadUrl,
+        installUrl: site.downloadUrl,
+        image: shareImage,
+        screenshot: shareImage,
         featureList: features,
         inLanguage: "en",
         countryOfOrigin: "IN",
@@ -87,7 +101,9 @@ export function jsonLd() {
         mainEntity: { "@id": `${url}/#software` },
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: `${url}/opengraph-image`,
+          url: shareImage,
+          width: 1200,
+          height: 630,
         },
       },
     ],

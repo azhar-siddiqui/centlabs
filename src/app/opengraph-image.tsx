@@ -1,3 +1,4 @@
+import { BrandTile, brand } from "@/lib/brand-icon";
 import { site } from "@/lib/site";
 import { ImageResponse } from "next/og";
 
@@ -14,49 +15,18 @@ export default function OpenGraphImage() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        backgroundColor: "#f4f1ea",
-        color: "#13211e",
+        backgroundColor: brand.paper,
+        color: brand.ink,
         padding: "64px 72px",
       }}
     >
       <div style={{ display: "flex", alignItems: "center" }}>
-        <div
-          style={{
-            width: 56,
-            height: 56,
-            borderRadius: 14,
-            backgroundColor: "#0b6b63",
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "center",
-            padding: "12px 10px",
-          }}
-        >
-          <div
-            style={{
-              width: 8,
-              height: 16,
-              backgroundColor: "#ffffff",
-              borderRadius: 2,
-              marginRight: 5,
-            }}
-          />
-          <div
-            style={{
-              width: 8,
-              height: 28,
-              backgroundColor: "#ffffff",
-              borderRadius: 2,
-              marginRight: 5,
-            }}
-          />
-          <div style={{ width: 8, height: 22, backgroundColor: "#ffffff", borderRadius: 2 }} />
-        </div>
+        <BrandTile size={56} />
         <div style={{ marginLeft: 18, fontSize: 32, fontWeight: 600 }}>{site.name}</div>
       </div>
 
       <div style={{ display: "flex", flexDirection: "column", maxWidth: 980 }}>
-        <div style={{ fontSize: 28, fontWeight: 600, color: "#0b6b63" }}>
+        <div style={{ fontSize: 28, fontWeight: 600, color: brand.teal }}>
           For pathology and veterinary labs in India
         </div>
         <div style={{ marginTop: 18, fontSize: 62, fontWeight: 600, lineHeight: 1.08 }}>
@@ -64,7 +34,7 @@ export default function OpenGraphImage() {
         </div>
       </div>
 
-      <div style={{ display: "flex", fontSize: 26, color: "#445751" }}>
+      <div style={{ display: "flex", fontSize: 26, color: brand.muted }}>
         <div style={{ marginRight: 36 }}>Works offline</div>
         <div style={{ marginRight: 36 }}>Encrypted on your PC</div>
         <div>Windows</div>

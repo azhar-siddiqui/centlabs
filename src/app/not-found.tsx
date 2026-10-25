@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const title = "Page not found | CentLabs Pro";
+const description = "This page is not on the CentLabs Pro site.";
+
 export const metadata: Metadata = {
-  title: { absolute: "Page not found | CentLabs Pro" },
-  description: "This page is not on the CentLabs Pro site.",
+  title: { absolute: title },
+  description,
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
+  openGraph: { title, description },
+  twitter: { title, description },
 };
 
 export default function NotFound() {

@@ -6,12 +6,14 @@ import "./globals.css";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
+  weight: "600",
   variable: "--font-fraunces",
   display: "swap",
 });
 
 const source = Source_Sans_3({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--font-source",
   display: "swap",
 });
@@ -21,6 +23,7 @@ const plex = IBM_Plex_Mono({
   weight: ["400", "500"],
   variable: "--font-plex",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -36,6 +39,22 @@ export const metadata: Metadata = {
   publisher: site.name,
   category: "software",
   referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     title: site.metaTitle,
     description: site.metaDescription,
