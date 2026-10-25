@@ -17,11 +17,11 @@ export function Download({
   variant = "primary",
   className = "",
   label = site.downloadLabel,
-}: {
+}: Readonly<{
   variant?: Variant;
   className?: string;
   label?: string;
-}) {
+}>) {
   return (
     <a
       href={site.downloadUrl}
@@ -38,11 +38,11 @@ export function WhatsApp({
   variant = "secondary",
   className = "",
   label = site.whatsappLabel,
-}: {
+}: Readonly<{
   variant?: Variant;
   className?: string;
   label?: string;
-}) {
+}>) {
   const opens = `${site.whatsappLabel}, opens in a new tab`;
   const custom = label !== site.whatsappLabel;
   return (

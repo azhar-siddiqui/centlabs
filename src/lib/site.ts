@@ -22,8 +22,7 @@ export const site = {
     "lab software India",
   ],
   downloadLabel: "Download for Windows",
-  // The owner must replace this with the direct URL of the Windows installer, named like CentLabs-Pro-setup.exe.
-  downloadUrl: "WINDOWS_DOWNLOAD_URL",
+  downloadUrl: "https://updates.centlabspro.com/CentLabs-Pro-1.2.0-setup.exe",
   whatsappLabel: "Chat on WhatsApp",
   whatsappUrl:
     "https://wa.me/917558380826?text=Hello%2C%20I%20want%20CentLabs%20Pro%20for%20my%20lab.",

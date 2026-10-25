@@ -41,7 +41,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const panelRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDialogElement>(null);
   const panelId = useId();
 
   useEffect(() => {
@@ -91,7 +91,7 @@ export function Header() {
       if (event.key !== "Tab" || !panel) return;
       const items = [...panel.querySelectorAll<HTMLElement>("a, button")];
       const first = items[0];
-      const last = items[items.length - 1];
+      const last = items.at(-1);
       if (!first || !last) return;
       if (event.shiftKey && document.activeElement === first) {
         event.preventDefault();
@@ -165,13 +165,13 @@ export function Header() {
       </div>
 
       {open ? (
-        <div
+        <dialog
           ref={panelRef}
           id={panelId}
-          role="dialog"
+          open
           aria-modal="true"
           aria-label="Menu"
-          className="fixed inset-x-0 bottom-0 z-50 overflow-y-auto overscroll-contain bg-paper px-5 py-4 lg:hidden top-[calc(4rem+env(safe-area-inset-top))]"
+          className="fixed inset-x-0 bottom-0 z-50 m-0 h-auto w-auto max-w-none overflow-y-auto overscroll-contain border-0 bg-paper px-5 py-4 text-ink lg:hidden top-[calc(4rem+env(safe-area-inset-top))]"
         >
           <nav aria-label="Mobile" className="mx-auto flex w-full max-w-6xl flex-col">
             {site.nav.map((item) => (
@@ -192,7 +192,7 @@ export function Header() {
               <Download className="w-full" />
             </div>
           </nav>
-        </div>
+        </dialog>
       ) : null}
 
       <noscript>

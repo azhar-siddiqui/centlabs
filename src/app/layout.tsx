@@ -61,7 +61,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html
       lang="en-IN"
       className={`${fraunces.variable} ${source.variable} ${plex.variable} h-full antialiased`}
-      suppressHydrationWarning
+      suppressHydrationWarning={true}
     >
       <body className="flex min-h-full flex-col">
         <a

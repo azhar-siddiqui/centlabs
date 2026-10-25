@@ -1,6 +1,6 @@
 import { site } from "@/lib/site";
 
-export function Mark({ className = "size-8" }: { className?: string }) {
+export function Mark({ className = "size-8" }: Readonly<{ className?: string }>) {
   return (
     <svg viewBox="0 0 32 32" className={`shrink-0 text-teal ${className}`} aria-hidden="true">
       <rect width="32" height="32" rx="8" fill="currentColor" />
